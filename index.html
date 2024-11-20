@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple|Old+Standard+TT:700|Share+Tech+Mono" rel="stylesheet">
+    <title>Static Scene Transition</title>
+</head>
+<body>
+<div class="background">
+  <div class="check">
+    <h1>GuestCheck™</h1>
+    <div class="meta">
+      <div class="meta-item">
+        <h2 class="meta-item-label">Date</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="meta-item-label">Table</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="meta-item-label">Guests</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="meta-item-label">Server</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="check-number">46126</h2>
+      </div>
+    </div>
+    <h3 class="item-types">
+      appt-soup/sal-entree-veg/pot-dessert-bev
+    </h3>
+    <div class="order-list-container">
+      <div class="order-list writing">
+        <h3 class="tax">Tax</h3>
+        <h3 class="total">Total</h3>
+        <h3 class="thank-you">Thank you</h3>
+        <h3 id="sceneName">Scene: </h3> <!-- Placeholder for Scene Name -->
+        <h3 id="timestamp">Timestamp: </h3> <!-- Placeholder for Timestamp -->
+      </div>
+    </div>
+    <div class="company-info">
+      <h4>525</h4>
+      <h4 class="small-caps">GuestCheck™</h4>
+      <h4>nationalchecking.com</h4>
+      <h4 class="small-caps usa">made in the USA</h4>
+    </div>
+    <div class="perforation"></div>
+    <h4 class="guest-receipt">Guest Receipt</h4>
+    <div class="guest-receipt-meta">
+      <div class="meta-item">
+        <h2 class="meta-item-label">Date</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="meta-item-label">Amount</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="meta-item-label">Guests</h2>
+      </div>
+      <div class="meta-item">
+        <h2 class="check-number">46126</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    const jsonData = [
+        {
+            "type": "scene_transition",
+            "sceneName": "s1",
+            "timestamp": "2024-11-20T05:12:38.066Z"
+        },
+        {
+            "type": "scene_transition",
+            "sceneName": "s2",
+            "timestamp": "2024-11-20T05:12:39.944Z"
+        },
+        {
+            "type": "scene_transition",
+            "sceneName": "s3",
+            "timestamp": "2024-11-20T05:12:41.158Z"
+        }
+    ];
+
+    function populateScene() {
+        const sceneNameElem = document.getElementById("sceneName");
+        const timestampElem = document.getElementById("timestamp");
+
+        const currentScene = jsonData[0]; // Display the first scene
+        sceneNameElem.textContent = `Scene: ${currentScene.sceneName}`;
+        timestampElem.textContent = `Timestamp: ${currentScene.timestamp}`;
+    }
+
+    window.onload = populateScene;
+</script>
+</body>
+</html>
+
